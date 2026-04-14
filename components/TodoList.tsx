@@ -79,12 +79,12 @@ export default function TodoList() {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="What needs to be done?"
-          className="flex-1 rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition-all placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+          className="flex-1 rounded-lg border border-red-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition-all placeholder:text-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-100"
         />
         <button
           onClick={addTodo}
           disabled={inputValue.trim().length === 0}
-          className="rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-lg bg-red-600 px-5 py-3 text-sm font-medium text-white shadow-sm transition-all hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Add
         </button>
@@ -100,15 +100,15 @@ export default function TodoList() {
                 onClick={() => setFilter(fb.value)}
                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                   filter === fb.value
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-red-600 text-white'
+                    : 'bg-red-100 text-red-600 hover:bg-red-200'
                 }`}
               >
                 {fb.label}
               </button>
             ))}
           </div>
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-red-500">
             {activeCount} item{activeCount !== 1 ? 's' : ''} left
           </span>
         </div>
@@ -130,20 +130,20 @@ export default function TodoList() {
       {/* Empty State */}
       {todos.length === 0 && (
         <div className="mt-12 flex flex-col items-center text-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
-            <svg className="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
+            <svg className="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
           </div>
-          <p className="mt-4 text-sm font-medium text-gray-500">No todos yet</p>
-          <p className="mt-1 text-xs text-gray-400">Add your first todo above to get started!</p>
+          <p className="mt-4 text-sm font-medium text-red-500">No todos yet</p>
+          <p className="mt-1 text-xs text-red-400">Add your first todo above to get started!</p>
         </div>
       )}
 
       {/* No results for filter */}
       {todos.length > 0 && filteredTodos.length === 0 && (
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-red-400">
             No {filter} todos found.
           </p>
         </div>
@@ -154,7 +154,7 @@ export default function TodoList() {
         <div className="mt-4 flex justify-end">
           <button
             onClick={clearCompleted}
-            className="text-xs text-gray-400 underline transition-colors hover:text-red-500"
+            className="text-xs text-red-400 underline transition-colors hover:text-red-600"
           >
             Clear completed ({completedCount})
           </button>
